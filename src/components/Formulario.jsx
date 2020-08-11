@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import styled from '@emotion/styled'
-
+import {obtenerDiferenciaYear} from '../helper'
 
 const Campo = styled.div`
     display:flex;
@@ -65,7 +65,7 @@ const {marca,year,plan}=datos;
 const obtenerInformacion = e=>{
     guardarDatos({
         ...datos,
-        [e.target.name]:e.target.value
+        [e.target.name]: e.target.value
     })
 }
 
@@ -78,6 +78,31 @@ const cotizarSeguro =e =>{
         return;
     }
     guardarError(false);
+
+
+    //una base de 2000
+    let resultado =2000;
+
+    //Obtener diferencia de years
+    const diferencia = obtenerDiferenciaYear(year);
+    
+
+    //por cada year restar el 3%
+    resultado -=( (diferencia*3)*resultado)/100;
+    console.log(resultado);
+
+    //Americano 15%
+
+    //Asiatico 5%
+
+    //Europeo 30%
+
+    //Basico aumenta 20%
+
+    //Completo 50%
+
+
+    //Total
 
 }
 
