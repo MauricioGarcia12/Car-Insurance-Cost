@@ -40,6 +40,15 @@ const Boton = styled.button`
     }
 `;
 
+const Error = styled.div`
+    background:red;
+    color:white;
+    padding:1rem;
+    width:100%;
+    text-align:center;
+    margin-bottom:2rem;
+
+`;
 const Formulario = () => {
 
     const [datos,guardarDatos]= useState({
@@ -47,6 +56,7 @@ const Formulario = () => {
         year:'',
         plan:''
     })
+    const [error,guardarError]= useState(false);
 
 const {marca,year,plan}=datos;
 
@@ -59,9 +69,24 @@ const obtenerInformacion = e=>{
     })
 }
 
+//cuando el usuario da submit
+
+const cotizarSeguro =e =>{
+    e.preventDefault();
+    if(marca.trim() ==='' || year.trim()==='' || plan.trim()===''){
+        guardarError(true);
+        return;
+    }
+    guardarError(false);
+
+}
 
     return (
-        <form>
+        <form
+        onSubmit={cotizarSeguro}
+        
+        >
+            {error ? <Error>Todos los cambios son obligatorios</Error>:null}
             <Campo>
                 <Label>Marca: </Label>
                 <Select
@@ -115,7 +140,7 @@ const obtenerInformacion = e=>{
                     onChange={obtenerInformacion}
                 />Completo
             </Campo>
-            <Boton type='button'>Cotizar</Boton>
+            <Boton type='submit'>Cotizar</Boton>
 
         </form>
 
