@@ -9,6 +9,11 @@ const ContenedorResumen =styled.div`
     color:white;
     margin-top:1rem;
 `
+const Ul=styled.ul`
+padding:0;
+
+
+`;
 
 const Resumen = ({datos}) => {
 
@@ -18,12 +23,12 @@ const Resumen = ({datos}) => {
     return ( 
         <ContenedorResumen>
         <h2>Resumen de cotizacion</h2>
-        <ul>
+        <Ul>
             <li>Marca: {primerMayuscula(marca)} </li>
             <li>Plan: {primerMayuscula(plan)}</li>
             <li>Year del Auto: {primerMayuscula(year)} </li>
 
-        </ul>
+        </Ul>
         </ContenedorResumen>
      );
 }
