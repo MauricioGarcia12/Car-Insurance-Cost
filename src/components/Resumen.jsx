@@ -11,8 +11,6 @@ const ContenedorResumen =styled.div`
 `
 const Ul=styled.ul`
 padding:0;
-
-
 `;
 
 const Resumen = ({datos}) => {
@@ -27,7 +25,6 @@ const Resumen = ({datos}) => {
             <li>Marca: {primerMayuscula(marca)} </li>
             <li>Plan: {primerMayuscula(plan)}</li>
             <li>Year del Auto: {primerMayuscula(year)} </li>
-
         </Ul>
         </ContenedorResumen>
      );
